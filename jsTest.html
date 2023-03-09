@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript setInterval</title>
+</head>
+<body>
+	<button id="clear">Pause</button>
+	<div id="info"></div>
+	<script>
+		var count = 0;
+		var interval = setInterval(counter,1000);
+		var btn = document.getElementById("clear");
+		btn.addEventListener("click",clearVal);
+		
+		function counter() {
+			document.getElementById("info").
+			innerHTML = count;
+			count++;
+		}
+		
+		function clearVal() {
+			console.log("clearing interval...");
+			clearInterval(interval);
+		}
+	</script>
+</body>
+</html>
