@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Event Propagation</title>
+	<style>
+		li {
+			font-size: 16pt;
+		}
+		li:hover {
+			background: #c8c8c8;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+	<ul id="list">
+		<li>1</li>
+	</ul>
+	<button id="btn">Add option to list</button>
+	<script>
+		var count = document.getElementsByTagName("li").length;
+		
+		var btn = document.getElementById("btn");
+		var list = document.getElementById("list");
+		
+		btn.addEventListener("click", function() {
+			count++;
+			console.log("Add new option..." + count);
+			var opt = document.createElement("li");
+			opt.innerHTML = count;
+			list.appendChild(opt);
+		});
+		list.addEventListener("click", function(event) {
+			if(event.target.innerHTML > 3) {
+				alert("The item clicked was item #" + event.target.innerHTML);
+			}
+		});
+	</script>
+</body>
+</html>
